@@ -1,10 +1,9 @@
 - hosts: localhost
-  environment:
-    K8S_AUTH_KUBECONFIG: /sched/kubeconfig.yaml
   tasks:
   - name: Cilium policy disable all traffic
     community.kubernetes.k8s:
       state: present
+      kubeconfig: /sched/kubeconfig.yaml
       definition:
         apiVersion: cilium.io/v2
         kind: CiliumNetworkPolicy
