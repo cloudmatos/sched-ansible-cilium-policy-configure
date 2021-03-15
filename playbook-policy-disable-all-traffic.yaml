@@ -1,5 +1,5 @@
-hosts: localhost
-tasks:
+- hosts: localhost
+  tasks:
   - name: Cilium policy disable all traffic
     community.kubernetes.k8s:
       state: present
