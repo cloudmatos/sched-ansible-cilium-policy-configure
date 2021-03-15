@@ -8,6 +8,7 @@ tasks:
         kind: CiliumNetworkPolicy
         metadata:
           name: disable-all-traffic-for-hello-labels
+          namespace: cilium-test
         spec:
           endpointSelector:
             matchLabels:
