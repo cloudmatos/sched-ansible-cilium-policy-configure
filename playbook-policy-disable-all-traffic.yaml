@@ -1,0 +1,18 @@
+hosts: localhost
+tasks:
+  - name: Cilium policy disable all traffic
+    community.kubernetes.k8s:
+      state: present
+      definition:
+        apiVersion: cilium.io/v2
+        kind: CiliumNetworkPolicy
+        metadata:
+          name: disable-all-traffic-for-hello-labels
+        spec:
+          endpointSelector:
+            matchLabels:
+              app: hello
+          ingress:
+            - {}
+          egress:
+            - {}
